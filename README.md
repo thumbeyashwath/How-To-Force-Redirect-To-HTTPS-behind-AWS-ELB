@@ -9,18 +9,19 @@ This tutorial uses X-Forwarded-Proto header value of the HTTP request, and apply
 --------------------------------------------------------------
 1. Apache
 Edit Apache VirtualHost configuration file in text editor and add the following content. Make sure rewrite module is enabled in Apache server.
-
+````
 <VirtualHost *:80>
-  ...
+  
   RewriteEngine On
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI}
 </VirtualHost>
+````
 --------------------------------------------------------------
 2. NGINX
 
 Edit Nginx HTTP server block for your domain to configure force redirection. Add the following content under location block to redirect all http traffic to https.
-
+````
 server {
  listen 80;
  ...
@@ -30,11 +31,11 @@ server {
   }
  }
 }
-
+````
 --------------------------------------------------------------
 3. IIS
 The windows servers with IIS web server edit the web.config file and add the following code under the section:
-
+````
 <rewrite>
 <rules>
 <rule name="AWS ELB Forece Redirect to HTTPS" stopProcessing="true">
@@ -46,4 +47,4 @@ The windows servers with IIS web server edit the web.config file and add the fol
 </rule>
 </rules>
 </rewrite>
-
+````

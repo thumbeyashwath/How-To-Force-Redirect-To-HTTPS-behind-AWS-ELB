@@ -1,6 +1,4 @@
-### Moved to git repository: https://github.com/denji/nginx-tuning
-
-NGINX Tuning For Best Performance
+### NGINX Tuning For Best Performance
 =================================
 
 For this configuration you can use web server you like, i decided, because i work mostly with it to use nginx.

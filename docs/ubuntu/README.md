@@ -4,6 +4,7 @@ If you wish to install only security updates the following will work. First it l
 filter out only the ones coming from a security repo, cut the returned strings at the first field, 
 and then passes them to apt-get install for package update.
 ```shell
+sudo apt list --upgradable | grep security |cut -d\/ -f1
 sudo apt list --upgradable | grep security |cut -d\/ -f1|xargs sudo apt-get install -y
 ```
 
@@ -15,7 +16,7 @@ systemctl status unattended-upgrades
 ```
 
 
-cat /etc/apt/apt.conf.d/50unattended-upgrades
+# cat /etc/apt/apt.conf.d/50unattended-upgrades
 ```shell
 Unattended-Upgrade::Allowed-Origins {
         "${distro_id}:${distro_codename}";
@@ -39,7 +40,7 @@ Unattended-Upgrade::Package-Blacklist {
 
 
 ```shell
-sudo unattended-upgrades --dry-run -–debug
+sudo unattended-upgrades --dry-run --debug
 ```
 Enable at 
 

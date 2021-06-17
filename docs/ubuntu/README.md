@@ -43,11 +43,16 @@ sudo unattended-upgrades --dry-run -–debug
 ```
 Enable at 
 
-`ls /etc/apt/apt.conf.d/20auto-upgrades`
-
+```shell
+/etc/apt/apt.conf.d/20auto-upgrades
+/etc/apt/apt.conf.d/10periodic
+```
+# cat /etc/apt/apt.conf.d/10periodic
 ```shell
 APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Download-Upgradeable-Packages "1";
 APT::Periodic::AutocleanInterval "7";
 APT::Periodic::Unattended-Upgrade "1";
 ```
+Reference:
+https://phoenixnap.com/kb/automatic-security-updates-ubuntu

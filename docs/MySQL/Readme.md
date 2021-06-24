@@ -63,8 +63,9 @@ SHOW VARIABLES LIKE ‘max_allowed_packet’;
 
 To set
 ```shell
-SET GLOBAL max_allowed_packet=16777216; (16MB) its in 16777216kb
+SET GLOBAL max_allowed_packet=16777216;
 ```
+(16MB) its in 16777216kb
  
 
 Allow the user “bob” to connect to the server from localhost (localhost or ip from which he is accessing) using the password “passwd”. Login as root. Switch to the MySQL db. Give privs. Update privs.
@@ -74,7 +75,7 @@ mysql> use mysql;
 mysql> grant usage on *.* to bob@localhost identified by ‘passwd’;
 mysql> flush privileges;
 ```
-—————————————Backup-Restore————————————-
+## Backup-Restore
 
 To Backup
 ```shell
@@ -82,9 +83,8 @@ mysqldump -uroot -p database_name > database_name.sql
 To Restore:
 mysql -uroot -p database_name < database_name.sql
 ```
-——————————End——————————–
 
-——————————–Database creation——————————–
+## Database creation
 ```shell
 mysql> Create database Test;
 
@@ -105,9 +105,8 @@ To check contents of table authors:
 mysql> SELECT * FROM authors;
 ```
 
-—————————————————————
 
-To Drop table;
+## To Drop table;
 
 
 ```shell
@@ -124,9 +123,9 @@ mysql> use my_database;
 
 mysql> source /tmp/testnow.sql;
 ```
-—————————————————————
 
-To Replicate mysql db from one db to another;
+
+## To Replicate mysql db from one db to another;
 
 Existing db = mydb; wants to copy db to mydbbackup;
 
@@ -136,9 +135,8 @@ mysql> Create database mydbbackup;
 
 mysqldump -uroot -pPASSWD mydb | mysql mydbbackup -uroot -pPASSWD
 ```
-—————————————————————
 
-Starting MYSQL in recovery mode:
+## Starting MYSQL in recovery mode:
 
 cat /etc/my.cnf
 ```shell
@@ -147,5 +145,4 @@ innodb_force_recovery = 1
 ```
 
 and start mysql
-—————————————————————
 

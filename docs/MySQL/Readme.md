@@ -138,11 +138,13 @@ mysqldump -uroot -pPASSWD mydb | mysql mydbbackup -uroot -pPASSWD
 
 ## Starting MYSQL in recovery mode:
 
+
+# add the below line
 cat /etc/my.cnf
 ```shell
-add the below line
 innodb_force_recovery = 1
 ```
 
-and start mysql
+# and start mysql
 
+Thank you..
